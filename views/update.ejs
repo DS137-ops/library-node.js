@@ -1,0 +1,44 @@
+<%- include('parts/top.ejs') %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <form action="/mybooks/update" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>title</label>
+            <input  name="title" class="form-control" value="<%= info.title %>"/>
+        </div>
+        <div class="form-group">
+            <label>description</label>
+            <textarea type="text" name="description" class="form-control"><%- info.description %></textarea>
+        </div>
+        <div class="form-group">
+            <label>price</label>
+            <input type="text" name="price" value="<%= info.price %>" class="form-control"/>
+        </div>
+        <input type="hidden" name="bookid" value="<%= info._id %>">
+        <div class="form-group">
+            <label>author</label>
+            <input type="text" value="<%= info.author %>" name="author" class="form-control"/>
+        </div>
+        <img src="/uploads/<%= info.image %>" name="image" width="200"height="200"/>
+        <div class="form-group">
+            <label>image</label>
+            <input type="file" accept=".jpg,.png,.jpeg"  class="form-control" name="image"/>
+        </div>
+      <input type="hidden" name="oldimage" value="<%= info.image %>">
+        <button type="submit" class="btn btn-success">update Book</button>
+       
+    </form>
+
+    
+</div>
+
+
+
+
+<%- include('parts/bottom.ejs') %>
